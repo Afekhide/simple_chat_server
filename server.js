@@ -4,7 +4,11 @@ import {createServer} from 'http';
 const PORT = process.env.PORT || 4000;
 let clients = []
 
-const httpServer = createServer()
+const httpServer = createServer((req, res) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write('Welcome to Simple Chat Server')
+    res.end()
+})
 const server = new Server(httpServer, {
     cors: {
         origin: "*"
