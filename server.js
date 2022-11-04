@@ -1,7 +1,7 @@
 import {Server} from 'socket.io';
 import {createServer} from 'http';
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 let clients = []
 
 const httpServer = createServer()
@@ -36,5 +36,5 @@ server.on('connection', socket => {
 
 
 
-httpServer.listen(PORT || 8080)
+httpServer.listen(PORT)
 console.log('Listenning on port... ', PORT)
